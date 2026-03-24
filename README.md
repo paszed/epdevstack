@@ -1,6 +1,6 @@
 # epdevstack
 
-Reproducible personal development environment (editor, shell, tooling) with fast bootstrap.
+Reproducible dev environment with Neovim, shell config and Homebrew bootstrap.
 
 ## Features
 
