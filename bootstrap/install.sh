@@ -3,40 +3,54 @@ set -e
 
 echo "🚀 Setting up development environment..."
 
-# repo location
-REPO="$HOME/dev/epdevstack"
+# Resolve repo root (works no matter where script is run from)
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+echo "📁 Repo path: $REPO"
 
 # 1. Ensure Homebrew exists
 if ! command -v brew >/dev/null 2>&1; then
-  echo "Installing Homebrew..."
+  echo "🍺 Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# 2. Install packages from Brewfile
-echo "Installing Homebrew packages..."
-brew bundle --file="$REPO/bootstrap/Brewfile"
+# 2. Ensure brew is available (Linux fix)
+if ! command -v brew >/dev/null 2>&1; then
+  echo "⚙️ Configuring Homebrew PATH..."
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
-# 3. Create config directory if missing
+# 3. Install packages from Brewfile
+if [ -f "$REPO/bootstrap/Brewfile" ]; then
+  echo "📦 Installing Homebrew packages..."
+  brew bundle --file="$REPO/bootstrap/Brewfile"
+else
+  echo "❌ Brewfile not found at $REPO/bootstrap/Brewfile"
+  exit 1
+fi
+
+# 4. Create config directory
 mkdir -p "$HOME/.config"
 
-# 4. Link Neovim config
-if [ ! -L "$HOME/.config/nvim" ]; then
-  echo "Linking Neovim config..."
-  ln -s "$REPO/config/nvim" "$HOME/.config/nvim"
-fi
+# 5. Link Neovim config
+echo "🔗 Linking Neovim config..."
+ln -sf "$REPO/config/nvim" "$HOME/.config/nvim"
 
-# 5. Link shell configs
-if [ ! -L "$HOME/.zshrc" ]; then
-  ln -s "$REPO/shell/.zshrc" "$HOME/.zshrc"
-fi
+# 6. Link shell configs
+echo "🔗 Linking shell configs..."
+ln -sf "$REPO/shell/.zshrc" "$HOME/.zshrc"
+ln -sf "$REPO/shell/.zprofile" "$HOME/.zprofile"
 
-if [ ! -L "$HOME/.zprofile" ]; then
-  ln -s "$REPO/shell/.zprofile" "$HOME/.zprofile"
-fi
+# 7. Link git config
+echo "🔗 Linking git config..."
+ln -sf "$REPO/git/.gitconfig" "$HOME/.gitconfig"
 
-# 6. Link git config
-if [ ! -L "$HOME/.gitconfig" ]; then
-  ln -s "$REPO/git/.gitconfig" "$HOME/.gitconfig"
+# 8. Persist Homebrew PATH (Linux only)
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  if ! grep -q "brew shellenv" "$HOME/.bashrc"; then
+    echo "💾 Adding Homebrew to PATH permanently..."
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.bashrc"
+  fi
 fi
 
 echo "✅ Dev environment setup complete."
