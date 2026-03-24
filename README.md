@@ -2,7 +2,7 @@
 
 Reproducible development environment.
 
-Defines my personal development setup (editor, shell, tooling) and allows bootstrapping a new machine quickly.
+Personal development environment (editor, shell, tooling) with fast bootstrap.
 
 ## Features
 
@@ -22,18 +22,19 @@ chmod +x bootstrap/install.sh
 ./bootstrap/install.sh
 ```
 
-## How it works
+## How It Works
 
 Configs are stored in this repo and symlinked to standard locations:
 
-`~/.config/nvim` →  `~/dev/epdevstack/config/nvim`
-`~/.zshrc`       →  `~/dev/epdevstack/shell/.zshrc`
-`~/.gitconfig`   →  `~/dev/epdevstack/git/.gitconfig`
+ - `~/.config/nvim` →  `~/dev/epdevstack/config/nvim`
+ - `~/.zshrc`       →  `~/dev/epdevstack/shell/.zshrc`
+ - `~/.gitconfig`   →  `~/dev/epdevstack/git/.gitconfig`
 
 Everything stays version-controlled and portable
 
 ## Structure
 
+```
 epdevstack/
 ├── bootstrap/
 ├── config/
@@ -41,6 +42,7 @@ epdevstack/
 ├── git/
 ├── README.md
 └── LICENSE
+```
 
 ## Platforms
 
