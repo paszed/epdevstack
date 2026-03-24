@@ -1,8 +1,6 @@
 # epdevstack
 
-Reproducible development environment.
-
-Personal development environment (editor, shell, tooling) with fast bootstrap.
+Reproducible personal development environment (editor, shell, tooling) with fast bootstrap.
 
 ## Features
 
@@ -24,11 +22,11 @@ chmod +x bootstrap/install.sh
 
 ## How It Works
 
-Configs are stored in this repo and symlinked to standard locations:
+Configuration files are stored in this repository and symlinked to standard locations:
 
- - `~/.config/nvim` →  `~/dev/epdevstack/config/nvim`
- - `~/.zshrc`       →  `~/dev/epdevstack/shell/.zshrc`
- - `~/.gitconfig`   →  `~/dev/epdevstack/git/.gitconfig`
+ - `~/.config/nvim` → `~/dev/epdevstack/config/nvim`
+ - `~/.zshrc`       → `~/dev/epdevstack/shell/.zshrc`
+ - `~/.gitconfig`   → `~/dev/epdevstack/git/.gitconfig`
 
 Everything stays version-controlled and portable
 
