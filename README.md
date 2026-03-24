@@ -24,9 +24,9 @@ chmod +x bootstrap/install.sh
 
 Configuration files are stored in this repository and symlinked to standard locations:
 
- - `~/.config/nvim → `~/dev/epdevstack/config/nvim`
- - `~/.zshrc       → `~/dev/epdevstack/shell/.zshrc`
- - `~/.gitconfig   → `~/dev/epdevstack/git/.gitconfig`
+ - `~/.config/nvim → ~/dev/epdevstack/config/nvim`
+ - `~/.zshrc       → ~/dev/epdevstack/shell/.zshrc`
+ - `~/.gitconfig   → ~/dev/epdevstack/git/.gitconfig`
 
 Everything stays version-controlled and portable
 
