@@ -1,30 +1,69 @@
 # epdevstack
 
-Personal development environment stack.
+Reproducible development environment.
 
-This repository stores the configuration and tooling required to recreate my development environment on a new machine.
+This repository defines my personal development setup, including editor, shell, and tooling configuration. It allows me to quickly bootstrap a new machine with a consistent environment.
 
-## What This Repo Contains
+## FEATURES
 
 - Neovim configuration
 - Shell configuration (.zshrc, .zprofile)
 - Git configuration
-- Homebrew package list
-- Bootstrap script
+- Homebrew package management
+- Automated bootstrap script
+- Portable via symlink
 
-## Setup on a New Machine
+## SETUP
 
 Clone the repository:
 
-git clone git@github.com:paszed/epdevstack.git
+git clone https://github.com/paszed/epdevstack.git
 cd epdevstack
-
-Run bootstrap:
-
+chmod +x bootstrap/install.sh
 ./bootstrap/install.sh
 
-This will:
-- install Homebrew if needed
-- install CLI tools from Brewfile
-- link configs
-- recreate the development environment
+## HOW IT WORKS
+
+Configuration files are stored in this repository and linked to standard system locations:
+
+~/.config/nvim  →  ~/dev/epdevstack/config/nvim
+~/.zshrc        →  ~/dev/epdevstack/shell/.zshrc
+~/.gitconfig    →  ~/dev/epdevstack/git/.gitconfig
+
+This keeps everything version-controlled and portable
+
+## STRUCTURE
+
+epdevstack/
+├── bootstrap/
+├── config/
+├── shell/
+├── git/
+├── README.md
+└── LICENSE
+
+## PLATFORM
+
+- macOS
+- Linux
+- Windows (use WSL)
+
+## NOTES
+
+- On Linux, some Homebrew packages (casks) are skipped automatically.
+- Neovim plugoins are installed on first launch.
+
+## QUICK CHECK
+
+After setup, verify:
+
+nvim
+git --version
+rg test
+fzf
+
+## GOAL
+
+A clean, portable, and reproducible developer environment.
+
+

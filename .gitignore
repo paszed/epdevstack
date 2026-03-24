@@ -1,7 +1,8 @@
 .DS_Store
 .ssh
 .env
-.cache
-.local
+.cache/
+.local/
 node_modules
 *.log
+.zsh_history
