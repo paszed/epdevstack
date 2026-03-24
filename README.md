@@ -2,37 +2,36 @@
 
 Reproducible development environment.
 
-This repository defines my personal development setup, including editor, shell, and tooling configuration. It allows me to quickly bootstrap a new machine with a consistent environment.
+Defines my personal development setup (editor, shell, tooling) and allows bootstrapping a new machine quickly.
 
 ## FEATURES
 
-- Neovim configuration
-- Shell configuration (.zshrc, .zprofile)
-- Git configuration
-- Homebrew package management
-- Automated bootstrap script
-- Portable via symlink
+ - Neovim config
+ - Shell config (.zshrc, .zprofile)
+ - Git config
+ - Homebrew package management
+ - Bootstrap script
+ - Symlink-based setup
 
-## SETUP
+## Setup
 
-Clone the repository:
-
+```bash
 git clone https://github.com/paszed/epdevstack.git
 cd epdevstack
 chmod +x bootstrap/install.sh
 ./bootstrap/install.sh
 
-## HOW IT WORKS
+## How it works
 
-Configuration files are stored in this repository and linked to standard system locations:
+Configs are stored in this repo and symlinked to standard locations:
 
 ~/.config/nvim  →  ~/dev/epdevstack/config/nvim
 ~/.zshrc        →  ~/dev/epdevstack/shell/.zshrc
 ~/.gitconfig    →  ~/dev/epdevstack/git/.gitconfig
 
-This keeps everything version-controlled and portable
+Everything stays version-controlled and portable
 
-## STRUCTURE
+## Structure
 
 epdevstack/
 ├── bootstrap/
@@ -42,28 +41,29 @@ epdevstack/
 ├── README.md
 └── LICENSE
 
-## PLATFORM
+## Platforms
 
-- macOS
-- Linux
-- Windows (use WSL)
+ - macOS
+ - Linux
+ - Windows (WSL)
 
-## NOTES
+## Notes
 
-- On Linux, some Homebrew packages (casks) are skipped automatically.
-- Neovim plugoins are installed on first launch.
+ - Linux skips unsupported Homebrew casks 
+ - Neovim plugins install on first launch.
 
-## QUICK CHECK
+## Quick Check
 
 After setup, verify:
 
+```bash
 nvim
 git --version
 rg test
 fzf
 
-## GOAL
+## Goal
 
-A clean, portable, and reproducible developer environment.
+Clean, portable, reproducible dev environment.
 
 
