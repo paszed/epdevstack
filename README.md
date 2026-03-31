@@ -2,7 +2,7 @@
 
 Reproducible dev environment with Neovim, shell config and Homebrew bootstrap.
 
-## Features
+##✨ Features
 
  - Neovim config
  - Shell config (`.zshrc`, `.zprofile`)
@@ -11,7 +11,7 @@ Reproducible dev environment with Neovim, shell config and Homebrew bootstrap.
  - Bootstrap script
  - Symlink-based setup
 
-## Setup
+##⚙️ Setup
 
 ```bash
 git clone https://github.com/paszed/epdevstack.git
@@ -20,7 +20,7 @@ chmod +x bootstrap/install.sh
 ./bootstrap/install.sh
 ```
 
-## How It Works
+##🧩 How It Works
 
 Configuration files are stored in this repository and symlinked to standard locations:
 
@@ -30,7 +30,7 @@ Configuration files are stored in this repository and symlinked to standard loca
 
 Everything stays version-controlled and portable
 
-## Structure
+##🗂 Structure
 
 ```
 epdevstack/
@@ -42,18 +42,18 @@ epdevstack/
 └── LICENSE
 ```
 
-## Platforms
+##💻 Platforms
 
  - macOS
  - Linux
  - Windows (WSL)
 
-## Notes
+##🗂 Notes
 
  - Linux skips unsupported Homebrew casks 
  - Neovim plugins install on first launch.
 
-## Quick Check
+##✅ Quick Check
 
 After setup, verify:
 
@@ -64,8 +64,6 @@ rg test
 fzf
 ```
 
-## Goal
+##🎯 Goal
 
-Clean, portable, reproducible dev environment.
-
-
+Clean, portable, reproducible dev environment
